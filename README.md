@@ -30,6 +30,7 @@ SaveStargate/
 ```
 
 
+
 ### Step 2: Install in Chrome
 
 1. Open Chrome/Brave
@@ -45,6 +46,9 @@ SaveStargate/
 - Click on the extension icon in the toolbar (🚀)
 - Enter text (e.g., `#SaveStargate`) into the field
 - Click "Add preset"
+<img width="467" height="390" alt="image" src="https://github.com/user-attachments/assets/f38c868c-e213-4013-81d0-d9747fee5cc6" />
+<img width="628" height="393" alt="image" src="https://github.com/user-attachments/assets/b38e614e-7aee-4b7c-aa5c-f254a8b55523" />
+
 
 ### 2️⃣ Use a Preset in a Tweet
 - Open X.com and start writing a tweet
