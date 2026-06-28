@@ -8,7 +8,7 @@ Chrome/Brave extension for easily adding #SaveStargate and other presets to twee
 - ✅ Create and manage custom text presets (#hashtags, phrases, etc.)
 - ✅ One click inserts a preset into the tweet compose box
 - ✅ All presets are saved automatically
-- ✅ Works on X.com and Twitter.com
+- ✅ Works on X.com
 
 ## 📦 Installation
 
@@ -54,22 +54,22 @@ SaveStargate/
 - Open X.com and start writing a tweet
 - A **"🚀 Add preset"** button will appear in the compose box
 - Click on it and select the preset you want to insert
-- It will automatically be inserted into your tweet
+- It will automatically be inserted into end of your tweet
 
 ### 3️⃣ Manage Presets
 - Go back to the extension menu
 - Next to each preset, you have buttons:
+  - presets are dragable so you can change the order
   - 📋 **Copy** - copies to clipboard
   - 🗑️ **Delete** - removes the preset
 
 ## 💡 Example Presets
 
 ```
+savestargate.com
 #SaveStargate
-#SaveStargate #GateSG1
-Come salute Stargate! 🌟 #SaveStargate
-#SaveStargate #SciFi #Television
-If there were no Stargate... 🛸 #SaveStargate
+#LetGeroBuildTheGate
+@AmazonMGMStudio @PrimeVideo
 ```
 
 ## 🔧 Troubleshooting
@@ -91,7 +91,7 @@ If there were no Stargate... 🛸 #SaveStargate
 ## 📝 Notes
 
 - Presets are saved **locally** in localStorage - they are not shared anywhere
-- The extension works **only on X.com/Twitter** (as specified in the manifest)
+- The extension works **only on X.com** (as specified in the manifest)
 - All data remains **only on your computer**
 
 ## 🎨 Customization
