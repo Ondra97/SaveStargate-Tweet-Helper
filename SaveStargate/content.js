@@ -24,7 +24,7 @@ function checkAndInjectButtons() {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.innerHTML = '🚀';
-    btn.title = 'SaveStargate presety';
+    btn.title = 'SaveStargate Presets';
     btn.style.cssText = `
       background:transparent; border:none; padding:8px; cursor:pointer;
       font-size:20px; display:inline-flex; align-items:center; justify-content:center;
@@ -51,7 +51,7 @@ function checkAndInjectButtons() {
 }
 
 function showMenu(textBox, button) {
-  // Načti presety z chrome.storage.local
+  // Load presets from chrome.storage.local
   chrome.storage.local.get('presets', (data) => {
     const presets = data.presets || [];
     buildMenu(textBox, button, presets);
@@ -80,7 +80,7 @@ function buildMenu(textBox, button, presets) {
     box-shadow: 0 8px 32px rgba(0,0,0,0.8);
   `;
 
-  // Pozice pod tlačítkem
+  // Position under the button
   const rect = button.getBoundingClientRect();
   const left = Math.max(8, Math.min(rect.left - 280, window.innerWidth - 328));
   popup.style.left = left + 'px';
@@ -102,7 +102,7 @@ function buildMenu(textBox, button, presets) {
   searchInput.onblur  = () => searchInput.style.background = '#202327';
   searchWrap.appendChild(searchInput);
 
-  // Modrá linka
+  // Blue line
   const blueLine = document.createElement('div');
   blueLine.style.cssText = 'height:2px; background:#1d9bf0; width:40px; margin:0 16px 0;';
 
@@ -124,7 +124,7 @@ function buildMenu(textBox, button, presets) {
 
     if (filtered.length === 0) {
       const empty = document.createElement('div');
-      empty.textContent = filter ? 'Žádné výsledky' : 'Žádné presety — přidej je v 🚀 menu';
+      empty.textContent = filter ? 'No results found' : 'No presets — add some in the 🚀 menu';
       empty.style.cssText = 'padding:20px 16px; color:#71767b; font-size:14px; text-align:center;';
       list.appendChild(empty);
       return;
@@ -172,7 +172,7 @@ function buildMenu(textBox, button, presets) {
 
   const cancelBtn = document.createElement('button');
   cancelBtn.innerHTML = '❌';
-  cancelBtn.title = 'Zrušit';
+  cancelBtn.title = 'Cancel';
   cancelBtn.style.cssText = `
     background:#ffd60022; border:none; border-radius:50%;
     width:44px; height:44px; font-size:22px; cursor:pointer;
@@ -184,7 +184,7 @@ function buildMenu(textBox, button, presets) {
 
   const addBtn = document.createElement('button');
   addBtn.innerHTML = '✅';
-  addBtn.title = 'Přidat do tweetu';
+  addBtn.title = 'Add to Tweet';
   addBtn.style.cssText = `
     background:#1d9bf022; border:none; border-radius:50%;
     width:44px; height:44px; font-size:22px; cursor:pointer;
@@ -226,8 +226,8 @@ function insertToTweet(textBox, presets) {
   const liveBox = document.querySelector('[contenteditable="true"][role="textbox"]') || textBox;
   liveBox.focus();
 
-  // X.com ma uvnitr contenteditable zanorene <span> elementy pro hashtags/links
-  // range.collapse(false) nestaci - musime projit az k poslednimu TEXT uzlu
+  // X.com has inside contenteditable submerged <span> elements for hashtags/links
+  // range.collapse(false) is not enough - we need to traverse to the last TEXT node
   const sel = window.getSelection();
   const range = document.createRange();
 
@@ -237,11 +237,11 @@ function insertToTweet(textBox, presets) {
   }
 
   if (lastNode.nodeType === Node.TEXT_NODE) {
-    // Presne na konec posledniho textu
+    // Precisely at the end of the last text node
     range.setStart(lastNode, lastNode.length);
     range.setEnd(lastNode, lastNode.length);
   } else {
-    // Fallback - konec containeru
+    // Fallback - end of the container
     range.selectNodeContents(lastNode);
     range.collapse(false);
   }
@@ -249,7 +249,7 @@ function insertToTweet(textBox, presets) {
   sel.removeAllRanges();
   sel.addRange(range);
 
-  // Maly delay aby React zachytil zmenu selekce pred paste
+  // Small delay so React catches the selection change before paste
   setTimeout(() => {
     const dt = new DataTransfer();
     dt.setData('text/plain', text);
